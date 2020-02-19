@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: black_widow_development
+  username: postgres
+  host: db
+  password:
+test:
+  <<: *default
+  database: black_widow_test
+
+production:
+  <<: *default
+  database: black_widow_production
+  username: black_widow
+  password: <%= ENV['BLACK_WIDOW_DATABASE_PASSWORD'] %>
