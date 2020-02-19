@@ -24,9 +24,11 @@ group :development do
   gem 'reek', '~> 5.6.0'
 end
 
-group :teste do
+group :test do
+  gem 'rails-controller-testing', '~> 1.0.4'
+  gem 'rspec-rails', '~> 3.9.0'
   gem 'simplecov', '~> 0.18.2', require: false
-  gem 'shoulda-matchers', '~> 4.3.0'
+  gem 'shoulda-matchers', '~> 4.3.0', require: false
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
