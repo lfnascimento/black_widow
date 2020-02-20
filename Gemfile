@@ -8,6 +8,7 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 4.1'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'rack-cors', '~> 1.1.1'
+gem 'knock', '~> 2.1.1'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -28,7 +29,7 @@ group :test do
   gem 'rails-controller-testing', '~> 1.0.4'
   gem 'rspec-rails', '~> 3.9.0'
   gem 'simplecov', '~> 0.18.2', require: false
-  gem 'shoulda-matchers', '~> 4.3.0', require: false
+  gem 'shoulda-matchers', '~> 4.3.0'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

@@ -2,17 +2,18 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-
-development:
-  <<: *default
-  database: black_widow_development
+local_default: &local_default
   username: postgres
   host: db
   password:
+development:
+  <<: *default
+  <<: *local_default
+  database: black_widow_development
 test:
   <<: *default
+  <<: *local_default
   database: black_widow_test
-
 production:
   <<: *default
   database: black_widow_production
