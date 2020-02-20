@@ -6,6 +6,6 @@ describe V1::UsersController, type: :controller do
 
     before { get :show, params: { id: user.id } }
 
-    it { is_expected.to respond_with(:ok) }
+    it { is_expected.to respond_with(:created) }
   end
 end
