@@ -32,7 +32,7 @@ describe 'Creating Financial Transaction', type: :request do
         run_test!
       end
 
-      response '422', 'user not found' do
+      response '422', 'financial transaction invalid' do
         let(:Authorization) do
           "Bearer #{Knock::AuthToken.new(payload: { sub: user.id }).token}"
         end
