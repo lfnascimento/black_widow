@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2020_02_20_230753) do
   enable_extension "plpgsql"
 
   create_table "accounts", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.citext "name"
+    t.citext "identification"
     t.money "balance", scale: 2, default: "0.0"
     t.uuid "user_id", null: false
     t.datetime "created_at", precision: 6, null: false

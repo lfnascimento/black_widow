@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :account do
-    name { 'Foo' }
+    identification { 'Foo' }
     balance { '120.75' }
     user
   end
