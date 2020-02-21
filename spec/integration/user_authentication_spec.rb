@@ -4,7 +4,7 @@ describe 'User authentication API', type: :request do
   let(:user) { create(:user) }
 
   path '/v1/user_token' do
-    post 'Obtain user token' do
+    post 'Get user token' do
       tags 'User Authentication'
       consumes 'application/json'
       parameter name: :auth, required: true, in: :body, schema: {

@@ -37,10 +37,10 @@ paths:
         '201':
           description: financial transaction created
         '422':
-          description: user not found
+          description: financial transaction invalid
   "/v1/user_token":
     post:
-      summary: Obtain user token
+      summary: Get user token
       tags:
       - User Authentication
       consumes:
