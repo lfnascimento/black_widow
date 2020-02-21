@@ -13,15 +13,15 @@ describe 'User authentication API', type: :request do
           email: { type: :string },
           password: { type: :string }
         },
-        required: [ 'email', 'password' ]
+        required: %w[email password]
       }
 
       response '201', 'user token obtained' do
         schema type: :object,
-          properties: {
-            jwt: { type: :string, },
-          },
-          required: [ 'jwt' ]
+               properties: {
+                 jwt: { type: :string, },
+               },
+               required: ['jwt']
 
         let(:auth) { { auth: { email: user.email, password: user.password } } }
         run_test!

@@ -11,7 +11,7 @@ describe 'Creating Financial Transaction', type: :request do
     let(:id) { source_account.id }
     post 'Create Financial Transaction' do
       tags 'Account'
-      security [ bearer: [] ]
+      security [bearer: []]
       consumes 'application/json'
       parameter name: :financial_transaction, required: true, in: :body, schema: {
         type: :object,
@@ -19,7 +19,7 @@ describe 'Creating Financial Transaction', type: :request do
           destination_account_id: { type: :string },
           amount: { type: :string, pattern: '^\d+,\d{2}$' }
         },
-        required: [ 'amount', 'destination_account_id' ]
+        required: %w[amount destination_account_id]
       }
 
       response '201', 'financial transaction created' do
