@@ -1,0 +1,39 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/v1/user_token":
+    post:
+      summary: Obtain user token
+      tags:
+      - UserToken
+      consumes:
+      - application/json
+      - application/xml
+      parameters:
+      - name: auth
+        in: body
+        schema:
+          type: object
+          properties:
+            email:
+              type: string
+            password:
+              type: string
+          required:
+          - email
+          - password
+      responses:
+        '201':
+          description: user token obtained
+          schema:
+            type: object
+            properties:
+              jwt:
+                type: string
+            required:
+            - jwt
+        '404':
+          description: user not found
