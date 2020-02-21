@@ -18,9 +18,9 @@ module FinancialTransactions
 
     def financial_transaction
       @financial_transaction ||= FinancialTransaction.
-        new(source_account: source_account,
-            destination_account: destination_account,
-            amount: amount)
+                                 new(source_account: source_account,
+                                     destination_account: destination_account,
+                                     amount: amount)
     end
   end
 end

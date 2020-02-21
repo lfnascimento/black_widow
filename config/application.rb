@@ -21,7 +21,7 @@ Bundler.require(*Rails.groups)
 
 module BlackWidow
   class Application < Rails::Application
-    config.load_defaults 6.0 and config.autoloader = :classic
+    config.load_defaults(6.0) && (config.autoloader = :classic)
     config.api_only = true
     config.generators do |g|
       g.orm :active_record, primary_key_type: :uuid

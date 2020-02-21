@@ -23,10 +23,10 @@ module V1
 
     def financial_transaction
       @financial_transaction ||= FinancialTransactions::CreateService.
-        new(@account,
-            @destination_account,
-            Monetize.parse(financial_transaction_params[:amount]).to_f).
-        perform
+                                 new(@account,
+                                     @destination_account,
+                                     Monetize.parse(financial_transaction_params[:amount]).to_f).
+                                 perform
     end
 
     def financial_transaction_params

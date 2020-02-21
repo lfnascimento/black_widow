@@ -16,8 +16,8 @@ describe FinancialTransactions::CreateService, type: :service do
           source_account.reload
           destination_account.reload
         end.to change(FinancialTransaction, :count).by(1).
-        and change(source_account, :balance).from(BigDecimal('100.00')).to(BigDecimal('90.00')).
-        and change(destination_account, :balance).from(BigDecimal('100.00')).to(BigDecimal('110.00'))
+          and change(source_account, :balance).from(BigDecimal('100.00')).to(BigDecimal('90.00')).
+          and change(destination_account, :balance).from(BigDecimal('100.00')).to(BigDecimal('110.00'))
       end
     end
 
