@@ -5,9 +5,9 @@ describe 'User authentication API', type: :request do
 
   path '/v1/user_token' do
     post 'Obtain user token' do
-      tags 'UserToken'
-      consumes 'application/json', 'application/xml'
-      parameter name: :auth, in: :body, schema: {
+      tags 'User Authentication'
+      consumes 'application/json'
+      parameter name: :auth, required: true, in: :body, schema: {
         type: :object,
         properties: {
           email: { type: :string },

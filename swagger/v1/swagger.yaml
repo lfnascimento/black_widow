@@ -8,12 +8,12 @@ paths:
     post:
       summary: Obtain user token
       tags:
-      - UserToken
+      - User Authentication
       consumes:
       - application/json
-      - application/xml
       parameters:
       - name: auth
+        required: true
         in: body
         schema:
           type: object
