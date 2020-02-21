@@ -1,0 +1,78 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/v1/accounts/{id}/transfer":
+    parameters:
+    - name: id
+      in: path
+      type: string
+      required: true
+    post:
+      summary: Create Financial Transaction
+      tags:
+      - Account
+      security:
+      - bearer: []
+      consumes:
+      - application/json
+      parameters:
+      - name: financial_transaction
+        required: true
+        in: body
+        schema:
+          type: object
+          properties:
+            destination_account_id:
+              type: string
+            amount:
+              type: string
+              pattern: "^\\d+,\\d{2}$"
+          required:
+          - amount
+          - destination_account_id
+      responses:
+        '201':
+          description: financial transaction created
+        '422':
+          description: financial transaction invalid
+  "/v1/user_token":
+    post:
+      summary: Get user token
+      tags:
+      - User Authentication
+      consumes:
+      - application/json
+      parameters:
+      - name: auth
+        required: true
+        in: body
+        schema:
+          type: object
+          properties:
+            email:
+              type: string
+            password:
+              type: string
+          required:
+          - email
+          - password
+      responses:
+        '201':
+          description: user token obtained
+          schema:
+            type: object
+            properties:
+              jwt:
+                type: string
+            required:
+            - jwt
+        '404':
+          description: user not found
+securityDefinitions:
+  bearer:
+    type: apiKey
+    name: Authorization
+    in: header
