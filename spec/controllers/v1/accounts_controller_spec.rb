@@ -7,16 +7,16 @@ describe V1::AccountsController, type: :controller do
     let(:another_user) { create(:user, email: 'zar@mail.com') }
     let(:destination_account) { create(:account, user: another_user) }
 
-    before { post :transfer, params: params }
+    before do
+      post :transfer, params: { id: source_account.id,
+                                financial_transaction: financial_transaction_params }
+    end
 
     context 'with valid params' do
-      let(:params) do
+      let(:financial_transaction_params) do
         {
-          id: source_account.id,
-          financial_transaction: {
-            destination_account_id: destination_account.id,
-            amount: '100.90'
-          }
+          destination_account_id: destination_account.id,
+          amount: '100,90'
         }
       end
 
@@ -24,13 +24,10 @@ describe V1::AccountsController, type: :controller do
     end
 
     context 'with invalid params' do
-      let(:params) do
+      let(:financial_transaction_params) do
         {
-          id: source_account.id,
-          financial_transaction: {
-            destination_account_id: destination_account.id,
-            amount: '150.00'
-          }
+          destination_account_id: destination_account.id,
+          amount: '150,00'
         }
       end
 

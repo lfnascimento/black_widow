@@ -23,7 +23,7 @@ module V1
 
     def financial_transaction
       @financial_transaction ||= FinancialTransactions::CreateService.
-        new(@account, @destination_account, BigDecimal(financial_transaction_params[:amount])).
+        new(@account, @destination_account, financial_transaction_params[:amount]).
         perform
     end
 
