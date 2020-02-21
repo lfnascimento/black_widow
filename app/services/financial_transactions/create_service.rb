@@ -5,7 +5,7 @@ module FinancialTransactions
     def initialize(source_account, destination_account, amount)
       @source_account = source_account
       @destination_account = destination_account
-      @amount = format_amount(amount)
+      @amount = amount
     end
 
     def perform
@@ -21,10 +21,6 @@ module FinancialTransactions
         new(source_account: source_account,
             destination_account: destination_account,
             amount: amount)
-    end
-
-    def format_amount(amount)
-      BigDecimal(Monetize.parse("BRL #{amount}").to_s)
     end
   end
 end

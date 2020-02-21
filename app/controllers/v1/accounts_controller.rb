@@ -4,7 +4,7 @@ module V1
     before_action :load_account, :load_destination_account, only: [:transfer]
 
     def transfer
-      if financial_transaction.persisted?
+      if financial_transaction.valid?
         render jsonapi: @financial_transaction, status: :created
       else
         render json: @financial_transaction.errors, status: :unprocessable_entity
@@ -23,7 +23,9 @@ module V1
 
     def financial_transaction
       @financial_transaction ||= FinancialTransactions::CreateService.
-        new(@account, @destination_account, financial_transaction_params[:amount]).
+        new(@account,
+            @destination_account,
+            Monetize.parse(financial_transaction_params[:amount]).to_f).
         perform
     end
 

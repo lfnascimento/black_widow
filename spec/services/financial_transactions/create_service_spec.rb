@@ -8,7 +8,7 @@ describe FinancialTransactions::CreateService, type: :service do
 
   describe '#perform' do
     context 'when valid' do
-      let(:amount) { '10,00' }
+      let(:amount) { 10.00 }
 
       it 'should create a financial transaction and update account balances' do
         expect do
@@ -22,7 +22,7 @@ describe FinancialTransactions::CreateService, type: :service do
     end
 
     context 'when invalid' do
-      let(:amount) { '150,00' }
+      let(:amount) { 150.00 }
 
       it 'should not create a financial transaction' do
         expect { subject.perform }.to_not change(FinancialTransaction, :count)

@@ -6,6 +6,6 @@ class SerializableFinancialTransaction < JSONAPI::Serializable::Resource
   attributes :source_account_id, :destination_account_id, :created_at
 
   attribute :amount do
-    number_to_currency(@object.amount, separator: ',', delimiter: '.', unit: '')
+    number_to_currency(@object.amount)
   end
 end
