@@ -4,7 +4,7 @@ account_info: &account_info
       account:
         attributes:
           base:
-            initial_balance_not_eq_balance: Initial Balance cannot be different from Balance
+            initial_balance_not_eq_balance: initial balance cannot be different from balance
 en:
   activemodel:
     <<: *account_info

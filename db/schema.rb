@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_20_220455) do
+ActiveRecord::Schema.define(version: 2020_02_20_230753) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -19,12 +19,21 @@ ActiveRecord::Schema.define(version: 2020_02_20_220455) do
 
   create_table "accounts", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.citext "name"
-    t.money "initial_balance", scale: 2, default: "0.0"
     t.money "balance", scale: 2, default: "0.0"
     t.uuid "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_accounts_on_user_id"
+  end
+
+  create_table "financial_transactions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.money "amount", scale: 2, default: "0.0"
+    t.uuid "source_account_id", null: false
+    t.uuid "destination_account_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["destination_account_id"], name: "index_financial_transactions_on_destination_account_id"
+    t.index ["source_account_id"], name: "index_financial_transactions_on_source_account_id"
   end
 
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -36,4 +45,6 @@ ActiveRecord::Schema.define(version: 2020_02_20_220455) do
   end
 
   add_foreign_key "accounts", "users"
+  add_foreign_key "financial_transactions", "accounts", column: "destination_account_id"
+  add_foreign_key "financial_transactions", "accounts", column: "source_account_id"
 end
