@@ -5,7 +5,7 @@ module V1
 
     def transfer
       if financial_transaction.persisted?
-        render json: @financial_transaction, status: :created
+        render jsonapi: @financial_transaction, status: :created
       else
         render json: @financial_transaction.errors, status: :unprocessable_entity
       end
