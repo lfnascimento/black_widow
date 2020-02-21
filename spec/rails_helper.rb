@@ -1,3 +1,9 @@
+require 'simplecov'
+SimpleCov.start 'rails' do
+  add_filter ['/config/']
+  add_group 'Services', 'app/services'
+end
+
 require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
 
