@@ -1,0 +1,12 @@
+financial_transaction_info: &financial_transaction_info
+  errors:
+    models:
+      financial_transaction:
+        attributes:
+          base:
+            source_account_eq_destination_account: Conta de origem deve ser diferente da conta de destino
+pt-BR:
+  activemodel:
+    <<: *financial_transaction_info
+  activerecord:
+    <<: *financial_transaction_info
