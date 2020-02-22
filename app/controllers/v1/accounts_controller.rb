@@ -16,6 +16,13 @@ module V1
       render jsonapi: @account
     end
 
+    def show
+      render json: @account, include: {
+        debits: { only: [:amount, :created_at] },
+        credits: { only: [:amount, :created_at] }
+      }
+    end
+
     private
 
     def load_destination_account
