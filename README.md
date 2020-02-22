@@ -12,7 +12,6 @@ To run this project you need to have:
 $ git clone https://github.com/lfnascimento/black_widow.git
 $ cd black_widow
 $ docker-compose build
-$ docker-compose up -d db
 $ docker-compose run bin/setup
 # Run the specs to check if everything is working ok and coverage
 $ docker-compose run app bundle exec rspec
@@ -20,7 +19,7 @@ $ docker-compose run app bundle exec rspec
 
 ## Running the project
 
-```$ docker-compose up -d app```
+```$ docker-compose up -d```
 
 ## Usage
 Please check the DOC. Open http://localhost:3000
