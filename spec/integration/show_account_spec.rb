@@ -17,14 +17,14 @@ describe 'Show Account', type: :request do
         let(:id) { account_1.id }
         let!(:ft_1) do
           create(:financial_transaction, source_account: account_1,
-                 destination_account: account_2,
-                 amount: 5.78)
+                                         destination_account: account_2,
+                                         amount: 5.78)
         end
 
         let!(:ft_2) do
           create(:financial_transaction, source_account: account_2,
-                 destination_account: account_1,
-                 amount: 5.78)
+                                         destination_account: account_1,
+                                         amount: 5.78)
         end
 
         let(:Authorization) do
