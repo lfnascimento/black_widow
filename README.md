@@ -14,7 +14,7 @@ $ cd black_widow
 $ docker-compose build
 $ docker-compose up -d db
 $ docker-compose run bin/setup
-#Run the specs to check if everything is working ok and coverage
+# Run the specs to check if everything is working ok and coverage
 $ docker-compose run app bundle exec rspec
 ```
 
