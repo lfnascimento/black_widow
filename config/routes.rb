@@ -5,9 +5,10 @@ Rails.application.routes.draw do
     post 'user_token' => 'user_token#create'
 
     resources :users, only: [:show]
-    resources :accounts, only: [:show, :index] do
+    resources :accounts, only: [:show] do
       member do
         post :transfer
+        get :balance
       end
     end
   end

@@ -1,7 +1,8 @@
 module V1
   class AccountsController < ApplicationController
     before_action :authenticate_user
-    before_action :load_account, :load_destination_account, only: [:transfer]
+    before_action :load_account
+    before_action :load_destination_account, only: [:transfer]
 
     def transfer
       if financial_transaction.valid?
@@ -9,6 +10,10 @@ module V1
       else
         render json: @financial_transaction.errors, status: :unprocessable_entity
       end
+    end
+
+    def balance
+      render jsonapi: @account
     end
 
     private
