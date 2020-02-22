@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.com/lfnascimento/black_widow.svg?branch=master)](https://travis-ci.com/lfnascimento/black_widow)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/lfnascimento/black_widow)
 # Black Widow - Bank Accounting
 
 To run this project you need to have:
