@@ -6,8 +6,8 @@ describe FinancialTransaction, type: :model do
   end
 
   describe 'associations' do
-    it { is_expected.to belong_to(:source_account).validate(true).class_name('Account').autosave(true) }
-    it { is_expected.to belong_to(:destination_account).validate(true).class_name('Account').autosave(true) }
+    it { is_expected.to belong_to(:source_account).class_name('Account').autosave(true) }
+    it { is_expected.to belong_to(:destination_account).class_name('Account').autosave(true) }
   end
 
   context 'validations' do

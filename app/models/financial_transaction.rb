@@ -1,5 +1,5 @@
 class FinancialTransaction < ApplicationRecord
-  with_options class_name: 'Account', validate: true, autosave: true do
+  with_options class_name: 'Account', autosave: true do
     belongs_to :source_account
     belongs_to :destination_account
   end
