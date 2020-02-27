@@ -15,6 +15,6 @@ ARG RAILS_ENV=development
 RUN chmod +x /usr/bin/entrypoint.sh
 ENTRYPOINT ["entrypoint.sh"]
 
-RUN if [ "$RAILS_ENV" = "production" ]; then SECRET_KEY_BASE=$(rake secret) bundle exec rake assets:precompile; fi
+RUN if [ "$RAILS_ENV" = "production" ]; then SECRET_KEY_BASE=$(bundle exec rails secret) bundle exec rails assets:precompile; fi
 
 CMD ['rails', 'server']
