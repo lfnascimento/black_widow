@@ -11,6 +11,7 @@ RUN gem install bundler && bundle install ${BUNDLE_INSTALL_ARGS} \
   && find /usr/local/bundle/gems/ -name "*.o" -delete
 
 #COPY entrypoint.sh /usr/bin/
+COPY . /app/
 ARG RAILS_ENV=development
 #RUN chmod +x /usr/bin/entrypoint.sh
 #ENTRYPOINT ["entrypoint.sh"]
