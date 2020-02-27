@@ -4,6 +4,7 @@ setup:
       as: DATABASE_URL
 build:
   docker:
+    BUNDLE_INSTALL_ARGS: --jobs 10 --retry=3 --without development test
     web: Dockerfile
   config:
     RAILS_ENV: production
