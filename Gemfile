@@ -11,13 +11,13 @@ gem 'rack-cors', '~> 1.1.1'
 gem 'knock', '~> 2.1.1'
 gem 'monetize', '~> 1.9.4'
 gem 'jsonapi-rails', '~> 0.4.0'
+gem 'rswag', '~> 2.2.0'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry-byebug', '~> 3.8'
   gem 'factory_bot_rails', '5.1.1'
   gem 'bullet', '~> 6.1.0'
-  gem 'rswag', '~> 2.2.0'
 end
 
 group :development do
