@@ -1,8 +1,16 @@
 language: generic
+env:
+  global:
+    - CC_TEST_REPORTER_ID=4b4df50af1b40d9c34a3214b0a00710527854192c29d59cda4ed683d3f32f7ea
 services:
   - docker
 before_script:
   - docker-compose build
   - docker-compose run app bundle exec rails db:test:prepare
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
 script:
   - docker-compose run app bundle exec rspec
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
