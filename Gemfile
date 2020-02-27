@@ -12,6 +12,7 @@ gem 'knock', '~> 2.1.1'
 gem 'monetize', '~> 1.9.4'
 gem 'jsonapi-rails', '~> 0.4.0'
 gem 'rswag', '~> 2.2.0'
+gem 'rspec-rails', '~> 3.9.0'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -30,7 +31,6 @@ end
 
 group :test do
   gem 'rails-controller-testing', '~> 1.0.4'
-  gem 'rspec-rails', '~> 3.9.0'
   gem 'simplecov', '~> 0.18.2', require: false
   gem 'shoulda-matchers', '~> 4.3.0'
 end
