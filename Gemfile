@@ -31,7 +31,7 @@ end
 group :test do
   gem 'rails-controller-testing', '~> 1.0.4'
   gem 'rspec-rails', '~> 3.9.0'
-  gem 'simplecov', '~> 0.18.2', require: false
+  gem 'simplecov', '~> 0.17.1', require: false
   gem 'shoulda-matchers', '~> 4.3.0'
 end
 
