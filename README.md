@@ -24,4 +24,6 @@ $ docker-compose run app bundle exec rspec
 ```$ docker-compose up```
 
 ## Usage
-Please check the DOC. Open http://localhost:3000
+[Examples](https://documenter.getpostman.com/view/8746814/SzKYPxAH)
+
+Please check the DOC for further information. Open http://localhost:3000
