@@ -16,6 +16,4 @@ test:
   database: black_widow_test
 production:
   <<: *default
-  database: black_widow_production
-  username: black_widow
-  password: <%= ENV['BLACK_WIDOW_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
