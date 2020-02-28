@@ -5,7 +5,7 @@ module V1
     before_action :load_destination_account, only: [:transfer]
 
     def transfer
-      if financial_transaction.valid?
+      if financial_transaction.persisted?
         render jsonapi: @financial_transaction, status: :created
       else
         render json: @financial_transaction.errors, status: :unprocessable_entity
